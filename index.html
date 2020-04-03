@@ -19,10 +19,14 @@
             <img class="goclass_three" id="fistSaoyisao" src="./images/pic01.jpg" />
             <input type="file" capture="camera" style="position:absolute;top: 12px;width: 24px;opacity: 0;right:3px;z-index: 0;" class="upload-pic-input" />
         </div>
+        <input type="file" accept="image/*" capture="camera">
+        <input type="file" accept="video/*" capture="camcorder">
+        <input type="file" accept="audio/*" capture="microphone">
     </div>
 
     <script>
         function saoYisao() {
+            alert("1")
             var dom = document.getElementsByClassName('upload-pic-input');
             Array.from(dom).forEach(item => {
                 item.onchange = function() {
