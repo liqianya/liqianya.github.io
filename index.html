@@ -2,69 +2,33 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML5 code Reader</title>
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/qrcode.js"></script>
-    <script src="./assets/js/qrcode.min.js.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>二维码扫描</title>
+    <link rel="stylesheet" type="text/css" href="lib/my.css">
 </head>
 
 <body>
-
     <div>
-
-        <div class="right-three" οnclick="saoYisao()">
-            <img class="goclass_three" id="fistSaoyisao" src="./images/pic01.jpg" />
-            <input type="file" capture="camera" style="position:absolute;top: 12px;width: 24px;opacity: 0;right:3px;z-index: 0;" class="upload-pic-input" />
+        <div class="qr-btn" node-type="qr-btn">扫描二维码1
+            <input node-type="jsbridge" type="file" name="myPhoto" value="扫描二维码1" />
         </div>
-        <input type="file" accept="image/*">
-        <input type="file" accept="image/*" capture="camera">
-        <a href="http://sao315.com/w/api/saoyisao">扫描</a>
-
     </div>
-
+    <div>
+        <div class="qr-btn" node-type="qr-btn">扫描二维码2
+            <input node-type="jsbridge" type="file" name="myPhoto" value="扫描二维码2" />
+        </div>
+    </div>
+    <div class="result-qrcode">
+    </div>
+    <script src="lib/zepto.js"></script>
+    <script src="lib/qrcode.lib.min.js"></script>
+    <script src="lib/qrcode.js"></script>
     <script>
-        var qr = GetQueryString("qrresult");
-        if (qr) {    //alert(qr);
-               
-            $("#result").html(qr);
-        }
-
-        function GetQueryString(name) {   
-            var reg = new RegExp("\\b" + name + "=([^&]*)");   
-            var r = location.href.match(reg);   
-            if (r != null) return decodeURIComponent(r[1]);
-        }
-
-        function saoYisao() {
-            alert("1")
-            var dom = document.getElementsByClassName('upload-pic-input');
-            Array.from(dom).forEach(item => {
-                item.onchange = function() {
-                    $(this).parent().find('p').hide();
-                    $(this).parent().find('.iconfont').hide();
-                    var src = getObjectURL(this.files[0]);
-                    qrcode.decode(src);
-                    qrcode.callback = function(src) {
-                        alert(src); //转码出来的信息
-                    }
-                }
-            });
-
-            function getObjectURL(file) {
-                var url = null;
-                if (window.createObjectURL != undefined) {
-                    url = window.createObjectURL(file);
-                } else if (window.URL != undefined) { // mozilla(firefox)
-                    url = window.URL.createObjectURL(file);
-                } else if (window.webkitURL != undefined) { // webkit or chrome
-                    url = window.webkitURL.createObjectURL(file);
-                }
-                return url;
-            }
-        }
+    //初始化扫描二维码按钮，传入自定义的 node-type 属性
+    $(function() {
+        Qrcode.init($('[node-type=qr-btn]'));
+    });
     </script>
 </body>
 
