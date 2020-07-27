@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>h5</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
-    <link rel="stylesheet" href="http://imgcache.gtimg.cn/mediastyle/mobile/event/20150114_spring_promotion/index.css">
-
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/anitment.css">
 </head>
 
 <body class="bodybox">
@@ -16,17 +16,53 @@
     <div class="wrap" id="wrap">
 
         <div class="item item-1">
-            <div class="item1_bg">123</div>
+            <div class="video">
+                <video src="./imgs/page1/bg.mp4" width="100%" height="100%" autoplay="autoplay" loop="loop" muted="muted"></video>
+            </div>
+            <div class="toPage"></div>
+            <!-- <div class="item1_wuyun"></div>
+            <div class="item1_lang2 lq-bg1"></div>
+            <div class="item1_lang lq-lang"></div>
+            <div class="item1_chuan  lq-chuan"></div>
+            <div class="item1_shandian  lq-shangdian "></div> -->
         </div>
 
         <div class="item item-2">
             <div class="box">
-                <h1 class="hide">救星驾到 秒变高富帅秘诀 </h1>
-                <div class="mod_container">
-                    <p class="sprite text_1"></p>
-                    <p class="sprite text_2"></p>
-                    <div class="sprite scene"></div>
+                <div class="item2_logo"></div>
+                <div class="timeLine">
+                    <div class="timeItem">
+                        <div class="left">2020-07.10</div>
+                        <div class="center"><span></span></div>
+                        <div class="right">尊贵标识 终于，成为有身份的人！尊贵标份的人！尊贵标识 终于，成为有身份的人！尊贵标识 终于，成为有身份的人！</div>
+                    </div>
+                    <div class="timeItem">
+                        <div class="left">2020-07.10</div>
+                        <div class="center"><span></span></div>
+                        <div class="right">尊贵标识 终于，成为有身份的人！尊贵标份的人！尊贵标识 终于，成为有身份的人！尊贵标识 终于，成为有身份的人！</div>
+                    </div>
+                    <div class="timeItem">
+                        <div class="left">2020-07.10</div>
+                        <div class="center"><span></span></div>
+                        <div class="right">尊贵标识 终于，成为有身份的人！尊贵标份的人！尊贵标识 终于，成为有身份的人！尊贵标识 终于，成为有身份的人！</div>
+                    </div>
+                    <div class="timeItem">
+                        <div class="left">2020-07.10</div>
+                        <div class="center"><span></span></div>
+                        <div class="right">尊贵标识 终于，成为有身份的人！尊贵标份的人！尊贵标识 终于，成为有身份的人！尊贵标识 终于，成为有身份的人！</div>
+                    </div>
+                    <div class="timeItem">
+                        <div class="left">2020-07.10</div>
+                        <div class="center"><span></span></div>
+                        <div class="right">尊贵标识 终于，成为有身份的人！尊贵标份的人！尊贵标识 终于，成为有身份的人！尊贵标识 终于，成为有身份的人！</div>
+                    </div>
+                    <div class="timeItem">
+                        <div class="left">2020-07.10</div>
+                        <div class="center"><span></span></div>
+                        <div class="right">尊贵标识 终于，成为有身份的人！尊贵标份的人！尊贵标识 终于，成为有身份的人！尊贵标识 终于，成为有身份的人！</div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -141,6 +177,7 @@
 
 
     <script type="text/javascript" src="./js/iSlider.js"></script>
+    <script src="./js/jq.min.js"></script>
     <script>
         //demo
         //用法
@@ -148,12 +185,57 @@
             wrap: '#wrap',
             item: '.item',
             onslide: function(index) {
+                console.log(index)
+                if (index == 1) {
+                    timeLineShow()
+                }
+
                 if (index == 7) {
                     document.getElementById('J_joinNum').innerHTML = parseInt(Math.random() * 10000);
                 }
             }
         });
-        console.info(myslider)
+        //时间轴循环展示
+        function timeLineShow() {
+            let i = 1;
+            $(".timeItem").each(function() {
+                setTimeout(() => {
+                    $(this).addClass("animate__animated animate__backInUp animate__delay-2s")
+                }, 20 * i)
+                i++;
+            });
+            // let lineItem = $(".timeLine")[0].children;
+            // console.log(lineItem)
+            // for (let i = 0; i < lineItem.length; i++) {
+            //     console.log(lineItem[i])
+            //     setTimeout(() => {
+            //         lineItem[i].addClass("animate__animated", "animate__flash");
+            //     }, 20 * n)
+            // }
+
+        };
+
+
+        // xiayu();
+
+        // function xiayu() {
+        //     setTimeout(function() {
+        //         var leftsuiji = RandomNumBoth(0, 100);
+        //         var yudi = '<div style="left:' + leftsuiji + '%;" class="yudi xiayu"></div>';
+        //         $(".xiayuxiaoguo").append(yudi);
+        //         xiayu();
+        //         if ($('.yudi').length >= 300) {
+        //             $('.yudi').remove();
+        //         }
+        //     }, 10)
+        // }
+
+        // function RandomNumBoth(Min, Max) {
+        //     var Range = Max - Min;
+        //     var Rand = Math.random();
+        //     var num = Min + Math.round(Rand * Range); //四舍五入
+        //     return num;
+        // }
     </script>
     <style>
         * {
