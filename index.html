@@ -147,6 +147,9 @@
     <script type="text/javascript" src="./js/iSlider.js"></script>
     <script src="./js/jq.min.js"></script>
     <script>
+        document.addEventListener('touchstart', function(event) {
+            event.preventDefault();
+        });
         //demo
         //用法
         var list = [0, 1, 2, 3]
