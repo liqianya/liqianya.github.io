@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/anitment.css">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var appId;
         var nonceStr;
         var timestamp;
@@ -117,7 +117,7 @@
             }
 
         }
-    </script>
+    </script> -->
 
 </head>
 
@@ -128,26 +128,29 @@
     <div class="wrap" id="wrap">
 
         <div class="item item-1">
-            <div class="alllogo"></div>
-            <div class="video">
-                <video src="./imgs/page1/bg.mp4" width="100%" height="100%" autoplay="autoplay" loop="loop" muted="muted" id="video"></video>
-            </div>
-            <div class="text1"></div>
-            <div class="text2"></div>
+            <div class="box box-1">
+                <div class="alllogo"></div>
+                <div class="video">
+                    <video src="./imgs/page1/bg.mp4" width="100%" height="100%" autoplay="autoplay" loop="loop" muted="muted" id="video"></video>
+                </div>
+                <div class="text1"></div>
+                <div class="text2"></div>
 
-            <div class="toPage">
-                <div class="bg"></div>
-                <div class="cbox">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
+                <div class="toPage">
+                    <div class="bg"></div>
+                    <div class="cbox">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
         <div class="item item-2">
 
-            <div class="box">
+            <div class="box box-2">
                 <div class="alllogo"></div>
                 <div class="item2_logo"></div>
                 <div class="timeLine">
@@ -187,14 +190,31 @@
         </div>
 
         <div class="item item-3">
-            <div class="box">
+            <div class="box box-3">
                 <div class="alllogo"></div>
-                ccc
+                <img src="./imgs/page3/bg.png" class="item3Bg" alt="" srcset="">
+                <div class="item3title">
+                    RCT临床获益结果
+                </div>
+                <div class="item3SubTitle">1.相对标准治疗降低<span>62%</span>死亡风险</div>
+                <div class="Box1">
+                    <div class="zhubox">
+                        <p>死亡风险</p>
+                        <img src="./imgs/page3/biaozhun.png" alt="" srcset="" class="zhu1">
+                        <img src="./imgs/page3/longlan.png" alt="" srcset="" class="zhu2">
+                    </div>
+                </div>
+                <div class="Box2">
+                    <div class="item3SubTitle">2.良好的安全性</div>
+                    <img src="./imgs/page3/dunpai.png" alt="" class="duopai">
+                </div>
+                <div class="item2_logo"></div>
+
             </div>
         </div>
 
         <div class="item item-4">
-            <div class="box">
+            <div class="box box-4">
                 <div class="alllogo"></div>
                 <img src="./imgs/page4/youting.png" alt="" srcset="" class="item4-youting">
                 <img src="./imgs/page4/bottom.png" alt="" srcset="" class="item4-bottom">
@@ -275,40 +295,40 @@
         //用法
         var list = [0, 1, 2, 3]
         var myslider = new iSlider({
-                    wrap: '#wrap',
-                    item: '.item',
-                    onslide: function(index) {
-                        console.log($(
-                                // for (let o = 0; o < list.length; o++) {
-                                //     if (o == index) {
-                                //         $(".item-" + (index + 1)).css('display', 'block')
-                                //     } else {
-                                //         $(".item-" + (index + 1)).css('display', 'none')
-                                //     }
-                                // };
-                                if (index == 1) {
-                                    timeLineShow()
-                                }
-                                if (index == 7) {
-                                    document.getElementById('J_joinNum').innerHTML = parseInt(Math.random() * 10000);
-                                }
+            wrap: '#wrap',
+            item: '.item',
+            onslide: function(index) {
 
-                            }
-                        });
+                for (let o = 0; o < list.length; o++) {
+                    if (o == index) {
+                        $(".box-" + (o + 1)).css('display', 'block')
+                    } else {
+                        $(".box-" + (o + 1)).css('display', 'none')
+                    }
+                };
+                if (index == 1) {
+                    timeLineShow()
+                }
+                if (index == 7) {
+                    document.getElementById('J_joinNum').innerHTML = parseInt(Math.random() * 10000);
+                }
 
-                    //时间轴循环展示
-                    function timeLineShow() {
-                        let i = 1;
-                        $(".timeItem").each(function() {
-                            setTimeout(() => {
-                                $(this).addClass("animate__animated animate__backInUp animate__delay-1s")
-                            }, 50 * i)
-                            i++;
-                        });
-                        $(".timeItem").each(function() {
-                            $(this).removeClass("animate__animated animate__backInUp animate__delay-1s")
-                        });
-                    };
+            }
+        });
+
+        //时间轴循环展示
+        function timeLineShow() {
+            let i = 1;
+            $(".timeItem").each(function() {
+                setTimeout(() => {
+                    $(this).addClass("animate__animated animate__backInUp animate__delay-1s")
+                }, 50 * i)
+                i++;
+            });
+            $(".timeItem").each(function() {
+                $(this).removeClass("animate__animated animate__backInUp animate__delay-1s")
+            });
+        };
     </script>
     <style>
         * {
