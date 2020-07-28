@@ -25,7 +25,6 @@
     'use strict';
 
     iSlider && iSlider.regPlugin('button', function() {
-        console.log("1111")
         var HANDLE = this;
         var btnOuter = [];
         var btnInner = [];

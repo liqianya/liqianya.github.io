@@ -38,6 +38,7 @@
                 <div class="text2"></div>
 
                 <div class="toPage">
+                    <img src="./imgs/page1/zchand.png" class="zchand" alt="">
                     <div class="bg"></div>
                     <div class="cbox">
                         <div class="circle"></div>
@@ -97,16 +98,23 @@
                 <div class="item3title">
                     RCT临床获益结果
                 </div>
-                <div class="item3SubTitle">1.相对标准治疗降低<span>62%</span>死亡风险</div>
+                <div class="item3SubTitle item3SubTitle1">1.相对标准治疗降低<span>62%</span>死亡风险</div>
                 <div class="Box1">
                     <div class="zhubox">
                         <p>死亡风险</p>
-                        <img src="./imgs/page3/biaozhun.png" alt="" srcset="" class="zhu1">
-                        <img src="./imgs/page3/longlan.png" alt="" srcset="" class="zhu2">
+                        <div class="zhuitembox" style="margin-right: 2rem;">
+                            <img src="./imgs/page3/biaozhun.png" alt="" srcset="" class="zhu1">
+                            <div>标准治疗</div>
+                        </div>
+                        <div class="zhuitembox">
+                            <img src="./imgs/page3/longlan.png" alt="" srcset="" class="zhu2">
+                            <div>瑞德西韦</div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="Box2">
-                    <div class="item3SubTitle">2.良好的安全性</div>
+                    <div class="item3SubTitle item3SubTitle2">2.良好的安全性</div>
                     <img src="./imgs/page3/dunpai.png" alt="" class="duopai">
                 </div>
                 <div class="item2_logo"></div>
@@ -117,6 +125,7 @@
         <div class="item item-4">
             <div class="box box-4">
                 <div class="alllogo"></div>
+                <img src="./imgs/page4/yangguang.png" alt="" srcset="" class="item4-yangguang">
                 <img src="./imgs/page4/youting.png" alt="" srcset="" class="item4-youting">
                 <img src="./imgs/page4/bottom.png" alt="" srcset="" class="item4-bottom">
                 <img src="./imgs/page4/yuncai.png" alt="" srcset="" class="item4_yuncai">
@@ -178,12 +187,17 @@
                     document.getElementById('J_joinNum').innerHTML = parseInt(Math.random() * 10000);
                 }
 
-            },
-            onslidePrev: function(i) {
-                console.log(i)
             }
         });
-        $(".toPage").on("click", function() {
+        // $(".toPage").on("click", function() {
+        //     $(".bg").addClass('bg1')
+        //     setTimeout(() => {
+        //         myslider.next();
+        //         $(".bg").removeClass('bg1')
+        //     }, 600)
+
+        // });
+        $(".toPage").on("touchend", function() {
             $(".bg").addClass('bg1')
             setTimeout(() => {
                 myslider.next();
@@ -235,11 +249,6 @@
                 return true;
             } else {
                 return false;
-            }
-        }
-        window.onload = function() {
-            if (!is_weixn()) {
-                just_play();
             }
         }
     </script>

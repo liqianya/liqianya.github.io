@@ -283,12 +283,12 @@ body {
 
 .text1 {
     background: url(../imgs/page1/text1.png);
-    animation: bounceInDown 5s 1s;
+    animation: text-bounceInDown 5s 1s;
 }
 
 .text2 {
     background: url(../imgs/page1/text2.png);
-    animation: lq-bounceInDown 5s 5.5s, backOutUp 2s 10s;
+    animation: lq-bounceInDown 5s 5.5s, backOutUp 1s 10s;
 }
 
 .text1,
@@ -336,6 +336,16 @@ body {
     background-size: contain;
 }
 
+.toPage .zchand {
+    width: 1.9rem;
+    position: relative;
+    top: 8rem;
+    left: 5rem;
+    z-index: 14;
+    opacity: 0;
+    animation: hand 2s 13s infinite;
+}
+
 .toPage .circle {
     position: absolute;
     z-index: 11;
@@ -381,27 +391,68 @@ body {
 @keyframes circle-opacity {
     0% {
         transform: scale(1);
-        opacity: 0.0;
+        opacity: 0.75;
     }
-    25% {
+    /* 25% {
         transform: scale(1.5);
         opacity: 0.1;
     }
     50% {
         transform: scale(2);
         opacity: 0.3;
-    }
+    } */
     75% {
-        transform: scale(1.5);
-        opacity: 0.5;
+        transform: scale(2);
+        opacity: 0;
     }
     100% {
-        transform: scale(1);
-        opacity: 0.0;
+        transform: scale(2);
+        opacity: 0;
     }
 }
 
-@-webkit-keyframes lq-bounceInDown {
+@keyframes hand {
+    from,
+    50%,
+    to {
+        opacity: 1;
+        transform: translate3d(0, 8px, 0) rotate(-25deg);
+    }
+    25%,
+    75% {
+        opacity: 1;
+        transform: translate3d(5px, -8px, 0) rotate(-25deg);
+    }
+}
+
+@keyframes text-bounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -3000px, 0) scaleY(3);
+        transform: translate3d(0, -3000px, 0) scaleY(3);
+    }
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 25px, 0) scaleY(0.9);
+        transform: translate3d(0, 25px, 0) scaleY(0.9);
+    }
+    75% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, -10px, 0) scaleY(0.95);
+        transform: translate3d(0, -10px, 0) scaleY(0.95);
+    }
+    90% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 5px, 0) scaleY(0.985);
+        transform: translate3d(0, 5px, 0) scaleY(0.985);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes lq-bounceInDown {
     from,
     60%,
     75%,
@@ -446,7 +497,7 @@ body {
         opacity: 1;
     }
     100% {
-        transform: scale(40);
+        transform: scale(50);
         opacity: 1;
     }
 }
@@ -664,7 +715,7 @@ body {
     right: 0;
     bottom: 25px;
     margin: 0 auto;
-    animation: fadeInLeftBig 1s ease-in-out;
+    /* animation: fadeInLeftBig 1s ease-in-out; */
 }
 
 .timeLine {
@@ -745,25 +796,25 @@ body {
     left: -100%;
     bottom: 12%;
     z-index: 2;
-    animation: youting 2s linear;
+    animation: youting 3s linear;
     animation-fill-mode: forwards;
 }
 
 @keyframes youting {
     0% {
-        left: -100%;
+        left: -90%;
     }
     100% {
-        left: -70%;
+        left: -82%;
     }
 }
 
 @keyframes yuncai {
     0% {
-        right: -100%;
+        right: -55%;
     }
     100% {
-        right: -37%;
+        right: -35%;
     }
 }
 
@@ -774,12 +825,18 @@ body {
     bottom: 0;
 }
 
+.item4-yangguang {
+    position: absolute;
+    z-index: 13;
+    width: 100%;
+}
+
 .item4_yuncai {
     background-image: linear-gradient(to bottom, rgba(244, 194, 77, 0), transparent);
     position: absolute;
-    width: 200%;
-    height: 76%;
-    top: -21%;
+    width: 209%;
+    /* height: 76%; */
+    top: -36%;
     right: -100%;
     animation: yuncai 3s linear;
     animation-fill-mode: forwards;
@@ -792,7 +849,7 @@ body {
     width: 95vw;
     margin: 0 auto;
     opacity: 0;
-    animation: item4text 3s 2s linear;
+    animation: item4text 3s 1.5s linear;
     animation-fill-mode: forwards;
 }
 
@@ -852,6 +909,9 @@ body {
     }
 }
 
+
+/* 3 */
+
 .item3Bg {
     height: 100vh;
     width: 100vw;
@@ -880,6 +940,7 @@ body {
     font-size: 1.2rem;
     margin-top: 1rem;
     text-align: left;
+    opacity: 0;
     padding-left: calc(23vw - (14*1.3px));
     margin-bottom: 1.3rem;
 }
@@ -918,9 +979,13 @@ body {
     top: .9rem;
 }
 
+.zhuitembox {
+    display: inline-block;
+    text-align: center;
+}
+
 .zhu1 {
     height: 6rem;
-    margin-right: 2rem;
     width: 3rem;
 }
 
@@ -940,25 +1005,31 @@ body {
     }
 }
 
+.item3SubTitle1 {
+    animation: backInLeft 1s 1.5s linear;
+    animation-fill-mode: forwards;
+}
+
+.item3SubTitle2 {
+    animation: backInLeft 1s 4s linear;
+    animation-fill-mode: forwards;
+}
+
 .duopai {
     width: 30vw;
-    animation: lq-zoomInDown 3s .5s linear;
+    opacity: 0;
+    animation: lq-zoomInDown 1s 3s linear;
+    animation-fill-mode: forwards;
 }
 
 @keyframes lq-zoomInDown {
     from {
         opacity: 0;
-        -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
-        transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
-        -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
     }
-    60% {
+    100% {
         opacity: 1;
-        -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
-        transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
-        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+        transform: scale3d(1, 1, 1) translate3d(0, 0px, 0);
     }
 }
 
