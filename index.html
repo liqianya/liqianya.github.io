@@ -14,7 +14,15 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/anitment.css">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-
+    <script>
+        /**微信环境中**/
+        document.addEventListener("WeixinJSBridgeReady", function() {
+            alert(
+                "iiiii"
+            )
+            audioAutoPlay('music');
+        }, false);
+    </script>
 
 </head>
 
@@ -22,6 +30,13 @@
     <!-- <script>
         window.debug = true;
     </script> -->
+    <span id="musicControl">
+        <a id="mc_play" class="on" onclick="play_music();">
+            <audio id="music" loop="loop" autoplay="autoplay">
+                <source src="./imgs/autio.mp3" type="audio/mpeg">
+            </audio>
+        </a>
+ </span>
     <div class="wrap" id="wrap">
 
         <div class="item item-1">
@@ -198,6 +213,46 @@
                 $(this).removeClass("animate__animated animate__backInUp animate__delay-1s")
             });
         };
+
+        function audioAutoPlay(id) {
+            $('#mc_play audio').get(0).play();
+        }
+        // <!-- music -->
+        function play_music(id) {
+            if ($('#mc_play').hasClass('on')) {
+                $('#mc_play audio').get(0).pause();
+                $('#mc_play').attr('class', 'stop');
+            } else {
+                $('#mc_play audio').get(0).play();
+                $('#mc_play').attr('class', 'on');
+            }
+            // $('#music_play_filter').hide();
+            event.stopPropagation(); //阻止冒泡
+        }
+
+        function just_play(id) {
+            $('#mc_play audio').get(0).play();
+            $('#mc_play').attr('class', 'on');
+            if (typeof(id) != 'undefined') {
+                // $('#music_play_filter').hide();
+            }
+            event.stopPropagation(); //阻止冒泡
+        }
+
+        function is_weixn() {
+            return false;
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        // window.onload = function() {
+        //     if (!is_weixn()) {
+        //         just_play();
+        //     }
+        // }
     </script>
     <style>
         * {
