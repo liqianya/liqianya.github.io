@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>h5</title>
+    <title>吉利德 瑞德西韦 </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=8">
     <meta http-equiv="Expires" content="0">
@@ -156,17 +156,7 @@
     <script type="text/javascript" src="./js/iSlider.js"></script>
     <script src="./js/jq.min.js"></script>
     <script>
-        window.onload = function() {
-                // $('#mc_play audio').get(0).pause();
-                // $('#mc_play').attr('class', 'stop');
-                /**微信环境中**/
-                // document.addEventListener("WeixinJSBridgeReady", function() {
-                //     alert(
-                //         "iiiii"
-                //     )
-                //     just_play();
-                // }, false);
-            }
+        window.onload = function() {}
             //demo
             //用法
         var list = [0, 1, 2, 3]
@@ -215,25 +205,26 @@
             });
         };
 
-        function audioAutoPlay(id) {
-            $('#mc_play audio').get(0).play();
-        }
         // <!-- music -->
         function play_music(id) {
-            console.log("play")
             if ($('#mc_play').hasClass('on')) {
                 $('#mc_play audio').get(0).pause();
                 $('#mc_play').attr('class', 'stop');
             } else {
-                $('#mc_play audio').get(0).play();
-                $('#mc_play').attr('class', 'on');
+                setTimeout(() => {
+                    $('#mc_play audio').get(0).play();
+                    $('#mc_play').attr('class', 'on');
+                }, 10);
+
             }
             // $('#music_play_filter').hide();
             event.stopPropagation(); //阻止冒泡
         }
 
         function just_play(id) {
-            $('#mc_play audio').get(0).play();
+            setTimeout(() => {
+                $('#mc_play audio').get(0).play();
+            }, 10);
             event.stopPropagation(); //阻止冒泡
         }
 
@@ -246,11 +237,11 @@
                 return false;
             }
         }
-        // window.onload = function() {
-        //     if (!is_weixn()) {
-        //         just_play();
-        //     }
-        // }
+        window.onload = function() {
+            if (!is_weixn()) {
+                just_play();
+            }
+        }
     </script>
     <style>
         * {
