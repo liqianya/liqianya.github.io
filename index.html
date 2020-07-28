@@ -165,8 +165,11 @@
     <script type="text/javascript" src="./js/iSlider.js"></script>
     <script src="./js/jq.min.js"></script>
     <script>
-        $('body').unbind("touchmove");
-        window.onload = function() {}
+        window.onload = function() {
+                document.addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                }, false);
+            }
             //demo
             //用法
         var list = [0, 1, 2, 3]
