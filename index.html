@@ -131,7 +131,7 @@
                 <img src="./imgs/page4/yuncai.png" alt="" srcset="" class="item4_yuncai">
                 <img src="./imgs/page4/text.png" alt="" srcset="" class="item4_text">
                 <img src="./imgs/page4/logo.png" alt="" srcset="" class="item4_logo">
-                <div class="bottomtext">科学严谨<span>|</span> 同情用药<span>|</span>免费专利</div>
+                <div class="bottomtext"><span>科学严谨<i>|</i></span> <span>同情用药<i>|</i></span><span>免费专利</span></div>
             </div>
         </div>
     </div>
@@ -190,14 +190,14 @@
 
             }
         });
-        // $(".toPage").on("click", function() {
-        //     $(".bg").addClass('bg1')
-        //     setTimeout(() => {
-        //         myslider.next();
-        //         $(".bg").removeClass('bg1')
-        //     }, 600)
+        $(".toPage").on("click", function() {
+            $(".bg").addClass('bg1')
+            setTimeout(() => {
+                myslider.next();
+                $(".bg").removeClass('bg1')
+            }, 600)
 
-        // });
+        });
         $(".toPage").on("touchend", function() {
             $(".bg").addClass('bg1')
             setTimeout(() => {

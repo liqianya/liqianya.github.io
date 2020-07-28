@@ -829,6 +829,8 @@ body {
     position: absolute;
     z-index: 13;
     width: 100%;
+    animation: yangguang 3s linear;
+    animation-fill-mode: forwards;
 }
 
 .item4_yuncai {
@@ -844,12 +846,14 @@ body {
 
 .item4_text {
     position: absolute;
-    z-index: 13;
+    z-index: 40;
+    right: 0;
     bottom: 26%;
-    width: 95vw;
+    width: 60vw;
+    left: 0;
     margin: 0 auto;
     opacity: 0;
-    animation: item4text 3s 1.5s linear;
+    animation: item4text 3s 1s linear;
     animation-fill-mode: forwards;
 }
 
@@ -870,13 +874,40 @@ body {
     text-align: center;
     justify-content: center;
     z-index: 34;
-    /* opacity: 0;
-    animation: lq-bottomtext 1s .5s linear;
-    animation-fill-mode: forwards; */
 }
 
 .bottomtext span {
+    opacity: 0;
+}
+
+.bottomtext span:first-child {
+    animation: lq-bottomtext .3s 4s linear;
+    animation-fill-mode: forwards;
+}
+
+.bottomtext span:nth-child(2) {
+    animation: lq-bottomtext .3s 4.3s linear;
+    animation-fill-mode: forwards;
+}
+
+.bottomtext span:nth-child(3) {
+    animation: lq-bottomtext .3s 4.5s linear;
+    animation-fill-mode: forwards;
+}
+
+.bottomtext i {
     margin: 0 2px;
+}
+
+@keyframes yangguang {
+    from {
+        opacity: .3;
+        transform: translate3d(0px, -10px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0px, 0, 0);
+    }
 }
 
 @keyframes item4text {
@@ -889,23 +920,16 @@ body {
     }
     100% {
         opacity: 1;
-        -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
-        transform: scale3d(0.475, 0.475, 0.475) translate3d(-10px, 0, 0);
-        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+        transform: scale3d(1, 1, 1) translate3d(0px, 0, 0);
     }
 }
 
 @keyframes lq-bottomtext {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(0, 2000px, 0);
-        transform: translate3d(0, 2000px, 0);
     }
     to {
         opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -1011,14 +1035,14 @@ body {
 }
 
 .item3SubTitle2 {
-    animation: backInLeft 1s 4s linear;
+    animation: backInLeft 1s 3s linear;
     animation-fill-mode: forwards;
 }
 
 .duopai {
     width: 30vw;
     opacity: 0;
-    animation: lq-zoomInDown 1s 3s linear;
+    animation: lq-zoomInDown 1s 4s linear;
     animation-fill-mode: forwards;
 }
 
@@ -1068,8 +1092,8 @@ body {
 
 #musicControl a {
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 1.9rem;
+    height: 1.9rem;
     overflow: hidden;
     background: url('../imgs/music.png') no-repeat;
     background-size: 100%;
