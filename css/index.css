@@ -1016,7 +1016,7 @@ body {
 .zhu2 {
     height: 6rem;
     width: 3rem;
-    animation: lq-xiajiang 1s .5s linear;
+    animation: lq-xiajiang 1s 1s linear;
     animation-fill-mode: forwards;
 }
 
@@ -1025,7 +1025,7 @@ body {
         height: 6rem;
     }
     to {
-        height: 3.72rem;
+        height: 2.28rem;
     }
 }
 

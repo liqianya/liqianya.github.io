@@ -1,19 +1,16 @@
 {
-  "name": "liqianya.github.io",
-  "version": "1.0.0",
-  "description": "Escape Velocity by HTML5 UP\r html5up.net | @ajlkn\r Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liqianya/liqianya.github.io.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/liqianya/liqianya.github.io/issues"
-  },
-  "homepage": "https://github.com/liqianya/liqianya.github.io#readme"
+    "name": "fastfill",
+    "version": "1.0.0",
+    "description": "fast fill color",
+    "author": "果王 <41421669@qq.com>",
+    "private": true,
+    "scripts": {
+        "start": "supervisor server"
+    },
+    "dependencies": {
+        "koa": "^2.5.0",
+        "koa-router": "^7.4.0",
+        "koa-static": "^4.0.2",
+        "koa-views": "^6.1.4"
+    }
 }
